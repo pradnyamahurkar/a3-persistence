@@ -3,15 +3,33 @@
 
 console.log("hello world :o");
 
+function displayRadioValue() {
+  var ele = document.getElementsByName("priority");
+
+  for (let i = 0; i < ele.length; i++) {
+    if (ele[i].checked) return ele[i].value;
+  }
+}
+
 // define variables that reference elements on our page
-const dreamsList = document.getElementById("dreams");
-const dreamsForm = document.querySelector("form");
+const input1 = document.querySelector("#yourtask"),
+          input2 = document.querySelector("#taskduedate"),
+          input3 = displayRadioValue(),
+          json1 = {
+            yourtask: input1.value,
+            date: input2.value,
+            priority: input3
+          }
+
+// const dreamsList = document.getElementById("dreams");
+const tasksList = document.getElementById("tasks");
+const tasksForm = document.querySelector("form");
 
 // a helper function that creates a list item for a given dream
-function appendNewDream(dream) {
+function appendNewDream(task) {
   const newListItem = document.createElement("li");
-  newListItem.innerText = dream;
-  dreamsList.appendChild(newListItem);
+  newListItem.innerText = task;
+  tasksList.appendChild(newListItem);
 }
 
 // fetch the initial list of dreams
