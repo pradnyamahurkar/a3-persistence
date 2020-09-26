@@ -49,10 +49,10 @@ fetch("/task")
       // stop our form submission from refreshing the page
       event.preventDefault();
 
-      // send information
+      // send information from the form to the server
       fetch("/add", {
         method: "POST",
-        body: JSON.stringify(json1),
+        body: JSON.stringify({test: 1}),
         headers: {
           "Content-Type": "application/json"
         }

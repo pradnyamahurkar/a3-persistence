@@ -28,11 +28,11 @@ app.get("/", (request, response) => {
 app.get("/task", (request, response) => {
   // express helps us take JS objects and send them as JSON
   response.json(tasks);
-  console.log
+  // console.log(request.body) 
   // console.log(tasks);
 });
 
-app.post("/task", bodyParser.json(), (request, response) => {
+app.post("/add", bodyParser.json(), (request, response) => {
   // tasks.push(request.body.dream);
   console.log(request.body)
   // response.json(request.body);
