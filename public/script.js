@@ -49,6 +49,7 @@ fetch("/task")
       // stop our form submission from refreshing the page
       event.preventDefault();
 
+      // send information
       fetch("/add", {
         method: "POST",
         body: JSON.stringify(json1),
