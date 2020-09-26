@@ -4,7 +4,7 @@
 // we've started you off with Express (https://expressjs.com/)
 // but feel free to use whatever libraries or frameworks you'd like through `package.json`.
 const express = require("express");
-const bodyParser = require('body-parser')
+const bodyParser = require("body-parser");
 const app = express();
 
 // our default array of dreams
@@ -27,13 +27,13 @@ app.get("/", (request, response) => {
 app.get("/dreams", (request, response) => {
   // express helps us take JS objects and send them as JSON
   response.json(dreams);
-  console.log(dreams)
+  console.log(dreams);
 });
 
 app.post("/add", bodyParser.json(), (request, response) => {
-  dreams.push(request.body.dream)
-  response.json(request.body)
-})
+  dreams.push(request.body.dream);
+  response.json(request.body);
+});
 
 // listen for requests :)
 const listener = app.listen(process.env.PORT, () => {
