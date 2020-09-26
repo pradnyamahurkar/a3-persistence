@@ -56,7 +56,7 @@ fetch("/task")
       })
         .then(response => response.json())
         .then(json => {
-          appendNewTask(json.yourtask);
+          appendNewTask(json.task);
         });
 
       // reset form

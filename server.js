@@ -28,14 +28,15 @@ app.get("/", (request, response) => {
 app.get("/task", (request, response) => {
   // express helps us take JS objects and send them as JSON
   response.json(tasks);
-  console.log(tasks);
+  console.log
+  // console.log(tasks);
 });
 
-// app.post("/add", bodyParser.json(), (request, response) => {
-//   dreams.push(request.body.dream);
-//   console.log(dreams)
-//   response.json(request.body);
-// });
+app.post("/task", bodyParser.json(), (request, response) => {
+  // tasks.push(request.body.dream);
+  console.log(request.body)
+  // response.json(request.body);
+});
 
 // listen for requests :)
 const listener = app.listen(process.env.PORT, () => {
@@ -53,16 +54,16 @@ client.connect(err => {
   // perform actions on the collection object
 });
 
-app.post("/submit", bodyParser.json(), function(request, response) {
-  tasks.push(request.body)
-  console.log("body:", request.body);
-  // console.log(collection);
-  // res.json(req.body);
+// app.post("/submit", bodyParser.json(), function(request, response) {
+//   tasks.push(request.body)
+//   console.log("body:", request.body);
+//   // console.log(collection);
+//   // res.json(req.body);
 
 
-  // return a promise, it will show the data with the unique id
-  // collection.insertOne(req.body).then(dbresponse => {
-  //   console.log(dbresponse);
-  //   res.json(dbresponse.ops[0]);
-  // });
-});
+//   // return a promise, it will show the data with the unique id
+//   // collection.insertOne(req.body).then(dbresponse => {
+//   //   console.log(dbresponse);
+//   //   res.json(dbresponse.ops[0]);
+//   // });
+// });
