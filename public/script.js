@@ -52,7 +52,7 @@ fetch("/task")
       // send information from the form to the server
       fetch("/add", {
         method: "POST",
-        body: JSON.stringify({test: 1}),
+        body: JSON.stringify(json1),
         headers: {
           "Content-Type": "application/json"
         }
