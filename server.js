@@ -60,8 +60,8 @@ app.post("/submit", bodyParser.json(), function(req, res) {
 
 
   // return a promise, it will show the data with the unique id
-  collection.insertOne(req.body).then(dbresponse => {
-    console.log(dbresponse);
-    res.json(dbresponse.ops[0]);
-  });
+  // collection.insertOne(req.body).then(dbresponse => {
+  //   console.log(dbresponse);
+  //   res.json(dbresponse.ops[0]);
+  // });
 });
