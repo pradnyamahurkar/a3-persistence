@@ -30,7 +30,7 @@ const tasksForm = document.querySelector("form");
 // a helper function that creates a list item for a given dream
 function appendNewTask(task) {
   const newListItem = document.createElement("li");
-  newListItem.innerText = String(task.yourtask) + &nbsp+ String(task.date);
+  newListItem.innerText = "TASK: " + String(task.yourtask) + '\xa0\xa0\xa0\xa0\xa0\xa0\xa0' + "DUE DATE: " + String(task.date)  + '\xa0\xa0\xa0\xa0\xa0\xa0\xa0' + "PRIORITY: " + String(task.priority) + '\xa0\xa0\xa0\xa0\xa0\xa0\xa0' + "ADVICE: " + String(task.advice);
   tasksList.appendChild(newListItem);
 }
 
