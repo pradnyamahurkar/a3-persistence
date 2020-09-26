@@ -53,7 +53,7 @@ client.connect(err => {
   // perform actions on the collection object
 });
 
-app.post("/add", bodyParser.json(), function(req, res) {
+app.post("/submit", bodyParser.json(), function(req, res) {
   console.log("body:", req.body);
   console.log(collection);
   // res.json(req.body);
