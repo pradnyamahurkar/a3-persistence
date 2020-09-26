@@ -6,7 +6,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
-let dataSet = []
+// let dataSet = []
 
 // our default array of dreams
 const tasks = [
@@ -27,8 +27,8 @@ app.get("/", (request, response) => {
 // send the default array of dreams to the webpage
 app.get("/task", (request, response) => {
   // express helps us take JS objects and send them as JSON
-  // response.json(dataSet);
-  console.log(dataSet);
+  response.json(tasks);
+  console.log(tasks);
 });
 
 // app.post("/add", bodyParser.json(), (request, response) => {
@@ -54,7 +54,7 @@ client.connect(err => {
 });
 
 app.post("/submit", bodyParser.json(), function(request, response) {
-  dataSet.push(request.body)
+  tasks.push(request.body)
   console.log("body:", request.body);
   // console.log(collection);
   // res.json(req.body);
