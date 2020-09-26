@@ -3,6 +3,7 @@
 
 console.log("hello world :o");
 
+// function for getting the checked radio button
 function displayRadioValue() {
   var ele = document.getElementsByName("priority");
 
@@ -22,13 +23,14 @@ const input1 = document.querySelector("#yourtask"),
           }
 
 // const dreamsList = document.getElementById("dreams");
+// reference to the list of tasks and refer to the form
 const tasksList = document.getElementById("tasks");
 const tasksForm = document.querySelector("form");
 
 // a helper function that creates a list item for a given dream
 function appendNewTask(task) {
   const newListItem = document.createElement("li");
-  newListItem.innerText = task;
+  newListItem.innerText = task.;
   tasksList.appendChild(newListItem);
 }
 
