@@ -32,10 +32,21 @@ app.get("/dreams", (request, response) => {
 
 app.post("/add", bodyParser.json(), (request, response) => {
   dreams.push(request.body.dream);
+  console.log(dreams)
   response.json(request.body);
 });
 
 // listen for requests :)
 const listener = app.listen(process.env.PORT, () => {
   console.log("Your app is listening on port " + listener.address().port);
+});
+
+
+const MongoClient = require('mongodb').MongoClient;
+const uri = `mongodb+srv://pdm:${process.env.dbpwd}@cluster0.blnob.gcp.mongodb.net/<dbname>?retryWrites=true&w=majority`;
+const client = new MongoClient(uri, { useNewUrlParser: true });
+client.connect(err => {
+  const collection = client.db("test").collection("devices");
+  // perform actions on the collection object
+  client.close();
 });
