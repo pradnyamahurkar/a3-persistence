@@ -15,7 +15,7 @@ function appendNewDream(dream) {
 }
 
 // fetch the initial list of dreams
-fetch("/dreams")
+fetch("/task")
   .then(response => response.json()) // parse the JSON from the server
   .then(dreams => {
     // remove the loading text
