@@ -10,9 +10,9 @@ const app = express();
 
 // our default array of dreams
 const tasks = [
-  "Find and count some sheep",
-  "Climb a really tall mountain",
-  "Wash the dishes"
+  {yourtask: "Find and count some sheep", date: "23/1/2002", priority: "High", advice: "Do it ASAP"},
+  {yourtask: "Climb a really tall mountain", date: "23/1/2005", priority: "Low", advice: "Chill"},
+  {yourtask: "Wash the dishes", date: "23/1/2005", priority: "Low", advice: "Chill"}
 ];
 
 // make all the files in 'public' available
