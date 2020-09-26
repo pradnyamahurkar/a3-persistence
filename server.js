@@ -53,8 +53,9 @@ client.connect(err => {
   // perform actions on the collection object
 });
 
-app.post("/submit", bodyParser.json(), function(req, res) {
-  console.log("body:", req);
+app.post("/submit", bodyParser.json(), function(request, response) {
+  dataSet.push(request.body)
+  console.log("body:", request.body);
   // console.log(collection);
   // res.json(req.body);
 
