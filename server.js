@@ -25,9 +25,9 @@ app.get("/", (request, response) => {
 });
 
 // send the default array of dreams to the webpage
-app.get("/submit", (request, response) => {
+app.get("/task", (request, response) => {
   // express helps us take JS objects and send them as JSON
-  response.json(dataSet);
+  // response.json(dataSet);
   console.log(dataSet);
 });
 
@@ -54,8 +54,8 @@ client.connect(err => {
 });
 
 app.post("/submit", bodyParser.json(), function(req, res) {
-  console.log("body:", req.body);
-  console.log(collection);
+  console.log("body:", req);
+  // console.log(collection);
   // res.json(req.body);
 
 
