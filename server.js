@@ -47,10 +47,10 @@ app.get("/task", (request, response) => {
   console.log(tasks)
 });
 
-app.post("/add", bodyParser.json(), (request, response) => {
-  tasks.push(request.body);
-  response.json(request.body);
-});
+// app.post("/add", bodyParser.json(), (request, response) => {
+//   tasks.push(request.body);
+//   response.json(request.body);
+// });
 
 // listen for requests :)
 const listener = app.listen(process.env.PORT, () => {
@@ -69,10 +69,10 @@ client.connect(err => {
 });
 
 app.post("/submit", bodyParser.json(), function(request, response) {
-  tasks.push(request.body)
+  // tasks.push(request.body)
   console.log("body:", request.body);
   console.log(collection);
-  response.json(request.body);
+  // response.json(request.body);
 
   // return a promise, it will sh ow the data with the unique id
   collection.insertOne(request.body).then(dbresponse => {
