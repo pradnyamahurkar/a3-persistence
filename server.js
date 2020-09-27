@@ -100,5 +100,8 @@ app.post("/add", bodyParser.json(), function(request, response) {
 });
 
 app.post('/delete', bodyParser.json(), function(request, response) {
-  collection.deleteOne({_id:mongodb(request.body.id)}).then(result=>response.json(result))
+  console.log("This is the id: " + request.body.id)
+  collection
+    .deleteOne({_id:mongodb.ObjectID(request.body.id)})
+    .then(result=>response.json(result))
 })
