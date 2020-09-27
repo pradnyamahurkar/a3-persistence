@@ -92,3 +92,10 @@ tasksForm.addEventListener("submit", event => {
   tasksForm.reset();
   tasksForm.elements.yourtask.focus();
 });
+
+tasksForm.addEventListener("modify", event => {
+  // stop our form submission from refreshing the page
+  event.preventDefault();
+  
+  
+});
