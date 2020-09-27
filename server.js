@@ -13,19 +13,19 @@ const tasks = [
   {
     yourtask: "Find and count some sheep",
     date: "23/1/2002",
-    priority: "High",
+    priority: "High"
     // advice: "Do it ASAP"
   },
   {
     yourtask: "Climb a really tall mountain",
     date: "23/1/2005",
-    priority: "Low",
+    priority: "Low"
     // advice: "Chill"
   },
   {
     yourtask: "Wash the dishes",
     date: "23/1/2005",
-    priority: "Low",
+    priority: "Low"
     // advice: "Chill"
   }
 ];
@@ -42,6 +42,8 @@ app.get("/", (request, response) => {
 // send the default array of dreams to the webpage
 app.get("/task", (request, response) => {
   // express helps us take JS objects and send them as JSON
+  console.log("Testing")
+  console.log(tasks)
   response.json(tasks);
   // console.log(request.body)
   console.log(tasks);
@@ -56,7 +58,6 @@ app.post("/add", bodyParser.json(), (request, response) => {
 const listener = app.listen(process.env.PORT, () => {
   console.log("Your app is listening on port " + listener.address().port);
 });
-
 
 // const mongodb = require("mongodb");
 // const MongoClient = mongodb.MongoClient;
