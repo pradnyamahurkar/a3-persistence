@@ -44,14 +44,14 @@ app.get("/task", (request, response) => {
   // express helps us take JS objects and send them as JSON
   response.json(tasks);
   // console.log(request.body)
-  console.log(tasks);
+  // console.log(tasks);
 });
 
-app.post("/add", (request, response) => {
-  tasks.push(request.body);
-  console.log("Please appear");
-  console.log("Please appear:" + tasks);
-  response.json(request.body);
+app.post("/add", bodyParser.json(), (request, response) => {
+  tasks.push(request.body); 
+  console.log(request.body);
+  // console.log("Please appear:" + tasks);
+  // response.json(request.body);
 });
 
 // listen for requests :)

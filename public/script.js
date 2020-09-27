@@ -34,7 +34,7 @@ function appendNewTask(task) {
   tasksList.appendChild(newListItem);
 }
 
-// fetch the initial list of dreams
+// fetch the initial list of tasks
 fetch("/task")
   .then(response => response.json()) // parse the JSON from the server
   .then(tasks => {
@@ -52,7 +52,8 @@ fetch("/task")
       // send information from the form to the server
       fetch("/add", {
         method: "POST",
-        body: JSON.stringify(json1),
+        // body: JSON.stringify(json1),
+        body: json1,
         headers: {
           "Content-Type": "application/json"
         }
