@@ -80,7 +80,20 @@ app.post("/add", bodyParser.json(), function(request, response) {
     // console.log(dbresponse.ops[0]);
     // console.log("Finished Printing")
     let newtask = dbresponse.ops[0];
-    
-    response.json(dbresponse.ops[0]);
+    if (newtask["priority"] === "med_priority") {
+      newtask["priority"] = "Medium"
+      newtask["message"] = "Finish your high priority tasks first and then get to this!"
+    }
+    if (newtask["priority"] === "high_priority") {
+      newtask["priority"] = "High"
+      newtask["message"] = "Finish this task first!"
+    }
+    if (newtask["priority"] === "low_priority") {
+      newtask["priority"] = "Low"
+      newtask["message"] = "Make sure you finish this task but also take out some time for yourself :D"
+    }
+    // response.json(dbresponse.ops[0]);
+    // tasks.push(newtask)
+    response.json(newtask)
   });
 });

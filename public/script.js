@@ -33,7 +33,7 @@ function appendNewTask(task) {
     String(task.priority) +
     "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +
     "ADVICE: " +
-    String(task.advice);
+    String(task.message);
   tasksList.appendChild(newListItem);
 }
 
