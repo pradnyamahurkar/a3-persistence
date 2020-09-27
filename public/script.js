@@ -35,7 +35,7 @@ function appendNewTask(task) {
     "ADVICE: " +
     String(task.message);
   
-  newListItem.onclick = function() {
+  newListItem.ondblclick = function() {
     fetch("/delete", {
     method: "POST",
     body: JSON.stringify({id: task._id}),
@@ -47,6 +47,13 @@ function appendNewTask(task) {
     .then(json => {
       newListItem.remove()
     });
+  }
+  
+  newListItem.onclick = function() {
+    fetch("/update", {
+      method: "POST",
+      body: JSON.stringify({id: task._id})
+    })
   }
   tasksList.appendChild(newListItem);
 }
