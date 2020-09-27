@@ -54,25 +54,24 @@ function appendNewTask(task) {
   //send the id and the task to the server
   // get back a json, delete the new list item
   // create a new one with similar information
-  newListItem.onclick = function() {
-    tasksForm.addEventListener("modify", event => {
-      // stop our form submission from refreshing the page
-      let modifiedtask = document.querySelector("#yourtask");
-      event.preventDefault();
-      fetch("/update", {
-        method: "POST",
-        body: JSON.stringify({id: task._id, yourtask: modifiedtask, date: task.date, priority: task.priority}),
-        headers: {
-          "Content-Type": "application/json"
-        }
-      })
-      .then(response => response.json())
-      .then(json => {
-        newListItem.remove();
-        appendNewTask(json);
-      })
-    });
-  };
+  // newListItem.onclick = function() {
+  //   tasksForm.addEventListener("modify", event => {
+  //     // stop our form submission from refreshing the page
+  //     let modifiedtask = document.querySelector("#yourtask");
+  //     event.preventDefault();
+  //     fetch("/update", {
+  //       method: "POST",
+  //       body: JSON.stringify({id: task._id, yourtask: modifiedtask, date: task.date, priority: task.priority}),
+  //       headers: {
+  //         "Content-Type": "application/json"
+  //       }
+  //     })
+  //     .then(response => response.json())
+  //     .then(json => {
+  //       newListItem.task = json.task;
+  //     })
+  //   });
+  // };
   tasksList.appendChild(newListItem);
 }
 
