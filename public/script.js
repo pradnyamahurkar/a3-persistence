@@ -34,27 +34,40 @@ function appendNewTask(task) {
     "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +
     "ADVICE: " +
     String(task.message);
-  
+
   newListItem.ondblclick = function() {
     fetch("/delete", {
-    method: "POST",
-    body: JSON.stringify({id: task._id}),
-    headers: {
-      "Content-Type": "application/json"
-    }
-  })
-    .then(response => response.json())
-    .then(json => {
-      newListItem.remove()
-    });
-  }
-  
-  newListItem.onclick = function() {
-    fetch("/update", {
       method: "POST",
-      body: JSON.stringify({id: task._id})
+      body: JSON.stringify({ id: task._id }),
+      headers: {
+        "Content-Type": "application/json"
+      }
     })
-  }
+      .then(response => response.json())
+      .then(json => {
+        newListItem.remove();
+      });
+  };
+
+  newListItem.onclick = function() {
+    tasksForm.addEventListener("modify", event => {
+      // stop our form submission from refreshing the page
+      let modifiedtask = document.querySelector("#yourtask");
+      event.preventDefault();
+      fetch("/update", {
+        method: "POST",
+        body: JSON.stringify({ id: task._id, yourtask: modifiedtask }),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
+      .then(response => response.json())
+      .then(json => {
+        newListItem.remove();
+        
+      })
+    });
+  };
   tasksList.appendChild(newListItem);
 }
 
@@ -98,11 +111,4 @@ tasksForm.addEventListener("submit", event => {
   // reset form
   tasksForm.reset();
   tasksForm.elements.yourtask.focus();
-});
-
-tasksForm.addEventListener("modify", event => {
-  // stop our form submission from refreshing the page
-  event.preventDefault();
-  
-  
 });
