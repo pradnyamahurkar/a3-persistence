@@ -40,12 +40,12 @@ app.get("/", (request, response) => {
 });
 
 // send the default array of dreams to the webpage
-app.get("/task", (request, response) => {
-  // express helps us take JS objects and send them as JSON
-  response.json(tasks);
-  // console.log(request.body)
-  console.log(tasks)
-});
+// app.get("/task", (request, response) => {
+//   // express helps us take JS objects and send them as JSON
+//   response.json(tasks);
+//   // console.log(request.body)
+//   console.log(tasks)
+// });
 
 // app.post("/add", bodyParser.json(), (request, response) => {
 //   tasks.push(request.body);
@@ -77,6 +77,6 @@ app.post("/submit", bodyParser.json(), function(request, response) {
   // return a promise, it will sh ow the data with the unique id
   collection.insertOne(request.body).then(dbresponse => {
     console.log(dbresponse);
-    response.json(dbresponse.ops[0]);
+    // response.json(dbresponse.ops[0]);
   });
 });
