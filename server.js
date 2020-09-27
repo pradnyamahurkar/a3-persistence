@@ -57,26 +57,26 @@ const listener = app.listen(process.env.PORT, () => {
   console.log("Your app is listening on port " + listener.address().port);
 });
 
-// const mongodb = require("mongodb");
-// const MongoClient = mongodb.MongoClient;
-// const uri = `mongodb+srv://pdm:${process.env.dbpwd}@cluster0.blnob.gcp.mongodb.net/<dbname>?retryWrites=true&w=majority`;
-// const client = new MongoClient(uri, { useNewUrlParser: true });
+const mongodb = require("mongodb");
+const MongoClient = mongodb.MongoClient;
+const uri = `mongodb+srv://pdm:${process.env.dbpwd}@cluster0.blnob.gcp.mongodb.net/<dbname>?retryWrites=true&w=majority`;
+const client = new MongoClient(uri, { useNewUrlParser: true });
 
-// let collection = null;
-// client.connect(err => {
-//   collection = client.db("assignment3").collection("tasks");
-//   // perform actions on the collection object
-// });
+let collection = null;
+client.connect(err => {
+  collection = client.db("assignment3").collection("tasks");
+  // perform actions on the collection object
+});
 
-// app.post("/submit", bodyParser.json(), function(request, response) {
-//   tasks.push(request.body)
-//   console.log("body:", request.body);
-//   // console.log(collection);
-//   // res.json(req.body);
+app.post("/submit", bodyParser.json(), function(request, response) {
+  tasks.push(request.body)
+  console.log("body:", request.body);
+  console.log(collection);
+  response.json(request.body);
 
-//   // return a promise, it will show the data with the unique id
-//   // collection.insertOne(req.body).then(dbresponse => {
-//   //   console.log(dbresponse);
-//   //   res.json(dbresponse.ops[0]);
-//   // });
-// });
+  // return a promise, it will sh ow the data with the unique id
+  collection.insertOne(request.body).then(dbresponse => {
+    console.log(dbresponse);
+    response.json(dbresponse.ops[0]);
+  });
+});
