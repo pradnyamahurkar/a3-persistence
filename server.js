@@ -42,8 +42,6 @@ app.get("/", (request, response) => {
 // send the default array of dreams to the webpage
 app.get("/task", (request, response) => {
   // express helps us take JS objects and send them as JSON
-  console.log("Testing")
-  console.log(tasks)
   response.json(tasks);
   // console.log(request.body)
   console.log(tasks);
