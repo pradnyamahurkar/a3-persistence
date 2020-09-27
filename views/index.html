@@ -55,7 +55,15 @@
   <head>
 <!--     <link rel="stylesheet" href="public/style.css" type="text/css" /> -->
 <!--     <link rel="stylesheet" href="/style.css"> -->
-    
+    <!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+
+<!-- CSS Reset -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+
+<!-- Milligram CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
+
     <script src="/script.js" defer></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lobster&display=swap"
@@ -69,16 +77,17 @@
       Your Work Advisor
     </h1>
     <form action="">
-      <ul class="wrapper">
-        <li class="form-row">
+<!--       <ul class="wrapper"> -->
+<!--         <li class="form-row"> -->
           <label for="yourtask">Task</label>
           <input type="text" id="yourtask" />
-        </li>
-        <li class="form-row">
+<!--         </li> -->
+<!--         <li class="form-row"> -->
           <label for="taskduedate">Due Date and Time</label>
           <input type="datetime-local" id="taskduedate" />
-        </li>
-        <li class="form-row">
+<!--         </li> -->
+<!--         <li class="form-row"> -->
+      <div>
           <label>Priority</label>
           <input
             type="radio"
@@ -101,12 +110,13 @@
             value="low_priority"
           />
           <label for="priority3" id="low"> Low Priority </label><br /><br />
-        </li>
-        <li class="form-row">
+      </div>
+<!--         </li> -->
+<!--         <li class="form-row"> -->
           <button class="submit" id="submit">Add Task</button>
 <!--           <button class="modify" id="modify">Modify a Task</button> -->
-        </li>
-      </ul>
+<!--         </li> -->
+<!--       </ul> -->
     </form>
     <br />
 
