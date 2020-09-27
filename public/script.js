@@ -13,14 +13,7 @@ function displayRadioValue() {
 }
 
 // define variables that reference elements on our page
-const input1 = document.querySelector("#yourtask"),
-          input2 = document.querySelector("#taskduedate"),
-          input3 = displayRadioValue(),
-          json1 = {
-            yourtask: input1.value,
-            date: input2.value,
-            priority: input3
-          }
+
 
 // const dreamsList = document.getElementById("dreams");
 // reference to the list of tasks and refer to the form
@@ -45,10 +38,19 @@ fetch("/task")
     tasks.forEach(appendNewTask);
 
     // listen for the form to be submitted and add a new dream when it is
-    tasks.addEventListener("submit", event => {
+    tasksForm.addEventListener("submit", event => {
       // stop our form submission from refreshing the page
       event.preventDefault();
 
+      const input1 = document.querySelector("#yourtask"),
+          input2 = document.querySelector("#taskduedate"),
+          input3 = displayRadioValue(),
+          json1 = {
+            yourtask: input1.value,
+            date: input2.value,
+            priority: input3
+          }
+      
       // send information from the form to the server
       fetch("/add", {
         method: "POST",
