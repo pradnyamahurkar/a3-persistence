@@ -99,6 +99,7 @@ app.post("/add", bodyParser.json(), function(request, response) {
   });
 });
 
+// delete a task
 app.post('/delete', bodyParser.json(), function(request, response) {
   console.log("This is the id: " + request.body.id)
   collection
