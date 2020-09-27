@@ -94,6 +94,7 @@ app.post("/add", bodyParser.json(), function(request, response) {
     }
     // response.json(dbresponse.ops[0]);
     // tasks.push(newtask)
+    // console.log(newtask)
     response.json(newtask)
   });
 });
