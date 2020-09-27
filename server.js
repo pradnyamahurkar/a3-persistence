@@ -14,19 +14,19 @@ const tasks = [
     yourtask: "Find and count some sheep",
     date: "23/1/2002",
     priority: "High",
-    advice: "Do it ASAP"
+    // advice: "Do it ASAP"
   },
   {
     yourtask: "Climb a really tall mountain",
     date: "23/1/2005",
     priority: "Low",
-    advice: "Chill"
+    // advice: "Chill"
   },
   {
     yourtask: "Wash the dishes",
     date: "23/1/2005",
     priority: "Low",
-    advice: "Chill"
+    // advice: "Chill"
   }
 ];
 
@@ -44,14 +44,12 @@ app.get("/task", (request, response) => {
   // express helps us take JS objects and send them as JSON
   response.json(tasks);
   // console.log(request.body)
-  // console.log(tasks);
+  console.log(tasks);
 });
 
 app.post("/add", bodyParser.json(), (request, response) => {
-  tasks.push(request.body); 
-  console.log(request.body);
-  // console.log("Please appear:" + tasks);
-  // response.json(request.body);
+  tasks.push(request.body);
+  response.json(request.body);
 });
 
 // listen for requests :)

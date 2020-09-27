@@ -52,19 +52,18 @@ fetch("/task")
       // send information from the form to the server
       fetch("/add", {
         method: "POST",
-        // body: JSON.stringify(json1),
-        body: json1,
+        body: JSON.stringify(json1),
         headers: {
           "Content-Type": "application/json"
         }
       })
         .then(response => response.json())
         .then(json => {
-          appendNewTask(json.task);
+          appendNewTask(json);
         });
 
       // reset form
-      tasksForm.reset();
-      tasksForm.elements.dream.focus();
+      // tasksForm.reset();
+      // tasksForm.elements.dream.focus();
     });
   });
