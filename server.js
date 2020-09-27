@@ -52,9 +52,9 @@ const listener = app.listen(process.env.PORT, () => {
   console.log("Your app is listening on port " + listener.address().port);
 });
 
-app.post("/add", bodyParser.json(), (request, response) => {
+app.post("/add", (request, response) => {
   // tasks.push(request.body.dream);
-  console.log("Please appear")
+  console.log("Please appear");
   console.log("Please appear:" + tasks);
   // response.json(request.body);
 });
