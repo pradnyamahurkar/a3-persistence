@@ -68,7 +68,7 @@ client.connect(err => {
   // perform actions on the collection object
 });
 
-app.post("/submit", bodyParser.json(), function(request, response) {
+app.post("/add", bodyParser.json(), function(request, response) {
   // tasks.push(request.body)
   console.log("body:", request.body);
   console.log(collection);
@@ -76,7 +76,9 @@ app.post("/submit", bodyParser.json(), function(request, response) {
 
   // return a promise, it will sh ow the data with the unique id
   collection.insertOne(request.body).then(dbresponse => {
-    console.log(dbresponse);
+    console.log("This printed")
+    console.log(dbresponse.ops[0]);
+    console.log("Finished Printing")
     // response.json(dbresponse.ops[0]);
   });
 });
