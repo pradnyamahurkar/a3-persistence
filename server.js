@@ -68,6 +68,7 @@ client.connect(err => {
   // perform actions on the collection object
 });
 
+// add a task
 app.post("/add", bodyParser.json(), function(request, response) {
   // tasks.push(request.body)
   console.log("body:", request.body);
