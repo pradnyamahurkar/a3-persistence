@@ -49,6 +49,11 @@ function appendNewTask(task) {
       });
   };
 
+  // click on the list item once
+  // enter your new task in the task field
+  //send the id and the task to the server
+  // get back a json, delete the new list item
+  // create a new one with similar information
   newListItem.onclick = function() {
     tasksForm.addEventListener("modify", event => {
       // stop our form submission from refreshing the page
@@ -56,7 +61,7 @@ function appendNewTask(task) {
       event.preventDefault();
       fetch("/update", {
         method: "POST",
-        body: JSON.stringify({ id: task._id, yourtask: modifiedtask }),
+        body: JSON.stringify({id: task._id, yourtask: modifiedtask, date: task.date, priority: task.priority}),
         headers: {
           "Content-Type": "application/json"
         }
@@ -64,7 +69,7 @@ function appendNewTask(task) {
       .then(response => response.json())
       .then(json => {
         newListItem.remove();
-        
+        appendNewTask(json);
       })
     });
   };

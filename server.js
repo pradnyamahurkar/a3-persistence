@@ -107,3 +107,13 @@ app.post('/delete', bodyParser.json(), function(request, response) {
     .deleteOne({_id:mongodb.ObjectID(request.body.id)})
     .then(result=>response.json(result))
 })
+
+// modify a task
+app.post( '/update', (request,response) => {
+  collection
+    .updateOne(
+      { _id:mongodb.ObjectID( request.body._id ) },
+      { $set:{ yourtask:request.body.yourtask, date: }}
+    )
+    .then( result => response.json( result ) )
+})
