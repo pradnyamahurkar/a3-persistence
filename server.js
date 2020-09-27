@@ -76,9 +76,11 @@ app.post("/add", bodyParser.json(), function(request, response) {
 
   // return a promise, it will sh ow the data with the unique id
   collection.insertOne(request.body).then(dbresponse => {
-    console.log("This printed")
-    console.log(dbresponse.ops[0]);
-    console.log("Finished Printing")
-    // response.json(dbresponse.ops[0]);
+    // console.log("This printed")
+    // console.log(dbresponse.ops[0]);
+    // console.log("Finished Printing")
+    let newtask = dbresponse.ops[0];
+    
+    response.json(dbresponse.ops[0]);
   });
 });
