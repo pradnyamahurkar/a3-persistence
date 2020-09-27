@@ -42,9 +42,16 @@ app.get("/", (request, response) => {
 // send the default array of dreams to the webpage
 app.get("/task", (request, response) => {
   // express helps us take JS objects and send them as JSON
-  // response.json(tasks);
+  response.json(tasks);
   // console.log(request.body)
   console.log(tasks);
+});
+
+app.post("/add", (request, response) => {
+  tasks.push(request.body);
+  console.log("Please appear");
+  console.log("Please appear:" + tasks);
+  response.json(request.body);
 });
 
 // listen for requests :)
@@ -52,12 +59,6 @@ const listener = app.listen(process.env.PORT, () => {
   console.log("Your app is listening on port " + listener.address().port);
 });
 
-app.post("/add", (request, response) => {
-  // tasks.push(request.body.dream);
-  console.log("Please appear");
-  console.log("Please appear:" + tasks);
-  // response.json(request.body);
-});
 
 const mongodb = require("mongodb");
 const MongoClient = mongodb.MongoClient;
