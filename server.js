@@ -10,24 +10,24 @@ const app = express();
 
 // our default array of dreams
 const tasks = [
-  {
-    yourtask: "Find and count some sheep",
-    date: "23/1/2002",
-    priority: "High",
-    // advice: "Do it ASAP"
-  },
-  {
-    yourtask: "Climb a really tall mountain",
-    date: "23/1/2005",
-    priority: "Low",
-    // advice: "Chill"
-  },
-  {
-    yourtask: "Wash the dishes",
-    date: "23/1/2005",
-    priority: "Low",
-    // advice: "Chill"
-  }
+  // {
+  //   yourtask: "Find and count some sheep",
+  //   date: "23/1/2002",
+  //   priority: "High",
+  //   // advice: "Do it ASAP"
+  // },
+  // {
+  //   yourtask: "Climb a really tall mountain",
+  //   date: "23/1/2005",
+  //   priority: "Low",
+  //   // advice: "Chill"
+  // },
+  // {
+  //   yourtask: "Wash the dishes",
+  //   date: "23/1/2005",
+  //   priority: "Low",
+  //   // advice: "Chill"
+  // }
 ];
 
 // make all the files in 'public' available
@@ -58,16 +58,16 @@ const listener = app.listen(process.env.PORT, () => {
 });
 
 
-const mongodb = require("mongodb");
-const MongoClient = mongodb.MongoClient;
-const uri = `mongodb+srv://pdm:${process.env.dbpwd}@cluster0.blnob.gcp.mongodb.net/<dbname>?retryWrites=true&w=majority`;
-const client = new MongoClient(uri, { useNewUrlParser: true });
+// const mongodb = require("mongodb");
+// const MongoClient = mongodb.MongoClient;
+// const uri = `mongodb+srv://pdm:${process.env.dbpwd}@cluster0.blnob.gcp.mongodb.net/<dbname>?retryWrites=true&w=majority`;
+// const client = new MongoClient(uri, { useNewUrlParser: true });
 
-let collection = null;
-client.connect(err => {
-  collection = client.db("assignment3").collection("tasks");
-  // perform actions on the collection object
-});
+// let collection = null;
+// client.connect(err => {
+//   collection = client.db("assignment3").collection("tasks");
+//   // perform actions on the collection object
+// });
 
 // app.post("/submit", bodyParser.json(), function(request, response) {
 //   tasks.push(request.body)
