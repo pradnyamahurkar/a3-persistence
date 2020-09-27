@@ -98,3 +98,7 @@ app.post("/add", bodyParser.json(), function(request, response) {
     response.json(newtask)
   });
 });
+
+app.post('/delete', bodyParser.json(), function(request, response) {
+  collection.deleteOne({_id:mongodb(request.body.id)}).then(result=>response.json(result))
+})

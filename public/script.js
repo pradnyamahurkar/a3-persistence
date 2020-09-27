@@ -34,6 +34,20 @@ function appendNewTask(task) {
     "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +
     "ADVICE: " +
     String(task.message);
+  
+  newListItem.onclick = function() {
+    fetch("/delete", {
+    method: "POST",
+    body: JSON.stringify({id: task._id}),
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+    .then(response => response.json())
+    .then(json => {
+      newListItem.remove()
+    });
+  }
   tasksList.appendChild(newListItem);
 }
 
