@@ -65,7 +65,7 @@ fetch("/task")
         });
 
       // reset form
-      // tasksForm.reset();
-      // tasksForm.elements.dream.focus();
+      tasksForm.reset();
+      tasksForm.elements.yourtask.focus();
     });
   });
