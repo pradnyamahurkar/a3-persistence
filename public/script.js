@@ -8,6 +8,19 @@ const loginButton = document.getElementById("login");
 const signupButton = document.getElementById("signup");
 let user = null
 
+function getRoster(){
+  fetch("/results", {
+    method:"GET",
+    headers: {
+      "sensei": senseiElement.innerText
+    }
+  })
+  .then( response => response.json() )
+  .then( json => {
+    listStudents(json);
+  })
+}
+
 // login function
 function login(e) {
     e.preventDefault();
@@ -41,10 +54,6 @@ function displayRadioValue() {
   for (let i = 0; i < ele.length; i++) {
     if (ele[i].checked) return ele[i].value;
   }
-}
-
-document.getElementById("Login").onclick = function () {
-  location.href = "views/login.html"
 }
 
 // define variables that reference elements on our page
