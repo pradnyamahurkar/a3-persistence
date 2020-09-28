@@ -27,11 +27,28 @@ function updateTable(json) {
   let yourtask = update.insertCell(1)
   let priority = update.insertCell(2)
   let advice = update.insertCell(3)
+  let remove = update.insertCell(4)
+  
+  var deleteButton = document.createElement("Button")
+  deleteButton.onClick = function () {
+    fetch("/delete", {
+      method: "POST",
+      body: JSON.stringify({ id: json._id }),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(response => response.json())
+      .then(json => {
+        update.remove();
+      });
+  };
   
   date.innerHTML = json.date;
   yourtask.innerHTML = json.yourtask;
   priority.innerHTML = json.priority;
   advice.innerHTML = json.message;
+  remove.appendChild(deleteButton);
   // update.insertCell(4).innerHTML = json.delete;
   
   // return update
