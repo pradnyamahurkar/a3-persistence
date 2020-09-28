@@ -8,58 +8,58 @@ const loginButton = document.getElementById("login");
 const signupButton = document.getElementById("signup");
 let user = null
 
-function listStudents(json){
-  let winrate = 0;
-  let numRows = table.rows.length-1;
-  // first delete all existing rows on the user page
-  for(let i=0; i<numRows; i++){
-    table.deleteRow(1);
-  }
-  // then display all information from the database
-  for(let j=0; j<json.length; j++) {
-    enrollStudent(json[j]);
-    winrate = winrate + Number(json[j].record);
-  }
+// function listStudents(json){
+//   let winrate = 0;
+//   let numRows = table.rows.length-1;
+//   // first delete all existing rows on the user page
+//   for(let i=0; i<numRows; i++){
+//     table.deleteRow(1);
+//   }
+//   // then display all information from the database
+//   for(let j=0; j<json.length; j++) {
+//     enrollStudent(json[j]);
+//     winrate = winrate + Number(json[j].record);
+//   }
   
-function getRoster(){
-  fetch("/results", {
-    method:"GET",
-    headers: {
-      "user": user
-    }
-  })
-  .then( response => response.json() )
-  .then( json => {
-    listStudents(json);
-  })
-}
+// function getRoster(){
+//   fetch("/results", {
+//     method:"GET",
+//     headers: {
+//       "user": user
+//     }
+//   })
+//   .then( response => response.json() )
+//   .then( json => {
+//     listStudents(json);
+//   })
+// }
 
 
 // login function
-function login(e) {
-    e.preventDefault();
+// function login(e) {
+//     e.preventDefault();
 
-    let user = document.getElementById("user").value;
-    let password = document.getElementById("password").value;
+//     let user = document.getElementById("user").value;
+//     let password = document.getElementById("password").value;
 
-    fetch('/login', {
-      method: "POST",
-      body: JSON.stringify({user, password}),
-      headers: {
-        "Content-Type":"application/json"
-      }
-    })
-    .then(async function(response) {
-      if (response.status === 200) {
-        let json = await response.json();
-        let username = json.user;
-        getRoster();
-      } 
-      else {
-        window.alert("Incorrect username or password");
-      }
-    });
-}
+//     fetch('/login', {
+//       method: "POST",
+//       body: JSON.stringify({user, password}),
+//       headers: {
+//         "Content-Type":"application/json"
+//       }
+//     })
+//     .then(async function(response) {
+//       if (response.status === 200) {
+//         let json = await response.json();
+//         let username = json.user;
+//         getRoster();
+//       } 
+//       else {
+//         window.alert("Incorrect username or password");
+//       }
+//     });
+// }
 
 // function for getting the checked radio button
 function displayRadioValue() {
@@ -139,19 +139,19 @@ function updateTable(json) {
 function appendNewTask(task) {
   const newListItem = updateTable(task)
  
-  newListItem.ondblclick = function() {
-    fetch("/delete", {
-      method: "POST",
-      body: JSON.stringify({ id: task._id }),
-      headers: {
-        "Content-Type": "application/json"
-      }
-    })
-      .then(response => response.json())
-      .then(json => {
-        newListItem.remove();
-      });
-  };
+  // newListItem.ondblclick = function() {
+  //   fetch("/delete", {
+  //     method: "POST",
+  //     body: JSON.stringify({ id: task._id }),
+  //     headers: {
+  //       "Content-Type": "application/json"
+  //     }
+  //   })
+  //     .then(response => response.json())
+  //     .then(json => {
+  //       newListItem.remove();
+  //     });
+  // };
 
   tasksList.appendChild(newListItem);
 }
