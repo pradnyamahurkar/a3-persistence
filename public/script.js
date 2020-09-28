@@ -12,7 +12,7 @@ function getRoster(){
   fetch("/results", {
     method:"GET",
     headers: {
-      "sensei": senseiElement.innerText
+      "user": senseiElement.innerText
     }
   })
   .then( response => response.json() )
@@ -20,6 +20,8 @@ function getRoster(){
     listStudents(json);
   })
 }
+
+
 
 // login function
 function login(e) {
