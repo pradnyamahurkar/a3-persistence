@@ -7,7 +7,6 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 
-
 // our default array of dreams
 const tasks = [
   // {
@@ -82,38 +81,46 @@ app.post("/add", bodyParser.json(), function(request, response) {
     // console.log("Finished Printing")
     let newtask = dbresponse.ops[0];
     if (newtask["priority"] === "med_priority") {
-      newtask["priority"] = "Medium"
-      newtask["message"] = "Finish your high priority tasks first and then get to this!"
+      newtask["priority"] = "Medium";
+      newtask["message"] =
+        "Finish your high priority tasks first and then get to this!";
     }
     if (newtask["priority"] === "high_priority") {
-      newtask["priority"] = "High"
-      newtask["message"] = "Finish this task first!"
+      newtask["priority"] = "High";
+      newtask["message"] = "Finish this task first!";
     }
     if (newtask["priority"] === "low_priority") {
-      newtask["priority"] = "Low"
-      newtask["message"] = "Make sure you finish this task but also take out some time for yourself :D"
+      newtask["priority"] = "Low";
+      newtask["message"] =
+        "Make sure you finish this task but also take out some time for yourself :D";
     }
     // response.json(dbresponse.ops[0]);
     // tasks.push(newtask)
     // console.log(newtask)
-    response.json(newtask)
+    response.json(newtask);
   });
 });
 
 // delete a task
-app.post('/delete', bodyParser.json(), function(request, response) {
-  console.log("This is the id: " + request.body.id)
+app.post("/delete", bodyParser.json(), function(request, response) {
+  console.log("This is the id: " + request.body.id);
   collection
-    .deleteOne({_id:mongodb.ObjectID(request.body.id)})
-    .then(result=>response.json(result))
-})
+    .deleteOne({ _id: mongodb.ObjectID(request.body.id) })
+    .then(result => response.json(result));
+});
 
 // modify a task
-app.post( '/update', (request,response) => {
+app.post("/update", (request, response) => {
   collection
     .updateOne(
-      { _id:mongodb.ObjectID( request.body._id ) },
-      { $set:{ yourtask:request.body.yourtask, date: request.body.date, priority: request.body.priority}}
+      { _id: mongodb.ObjectID(request.body._id) },
+      {
+        $set: {
+          yourtask: request.body.yourtask,
+          date: request.body.date,
+          priority: request.body.priority
+        }
+      }
     )
-    .then( result => response.json( result ) )
-})
+    .then(result => response.json(result));
+});
