@@ -109,6 +109,15 @@ app.post("/delete", bodyParser.json(), function(request, response) {
     .then(result => response.json(result));
 });
 
+app.get("/results", function(request, response) {
+  collection.find({ sensei: request.headers.sensei })
+  .toArray()
+  .then(students => {
+    console.log(`Successfully found ${students.length} document(s) for Sensei ${request.headers.sensei}.`);
+    response.json( students );
+  })
+})
+
 // modify a task
 app.post("/update", (request, response) => {
   collection
