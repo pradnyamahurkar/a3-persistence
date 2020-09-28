@@ -19,21 +19,34 @@ function displayRadioValue() {
 const tasksList = document.getElementById("tasks");
 const tasksForm = document.querySelector("form");
 
+function updateTable(json) {
+  const tableBody = document.getElementById("taskBody");
+  let update = tableBody.insertRow(0);
+
+  update.insertCell(0).innerHTML = json.date;
+  update.insertCell(1).innerHTML = json.yourtask;
+  update.insertCell(2).innerHTML = json.priority;
+  update.insertCell(3).innerHTML = json.message;
+  update.insertCell(4).innerHTML = json.delete;
+  
+}
+
 // a helper function that creates a list item for a given dream
 function appendNewTask(task) {
-  const newListItem = document.createElement("li");
-  newListItem.innerText =
-    "TASK: " +
-    String(task.yourtask) +
-    "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +
-    "DUE DATE: " +
-    String(task.date) +
-    "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +
-    "PRIORITY: " +
-    String(task.priority) +
-    "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +
-    "ADVICE: " +
-    String(task.message);
+  // const newListItem = document.createElement("li");
+  // newListItem.innerText =
+  //   "TASK: " +
+  //   String(task.yourtask) +
+  //   "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +
+  //   "DUE DATE: " +
+  //   String(task.date) +
+  //   "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +
+  //   "PRIORITY: " +
+  //   String(task.priority) +
+  //   "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +
+  //   "ADVICE: " +
+  //   String(task.message);
+  updateTable(task)
 
   newListItem.ondblclick = function() {
     fetch("/delete", {

@@ -7,7 +7,6 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 
-// let dataSet = []
 
 // our default array of dreams
 const tasks = [
