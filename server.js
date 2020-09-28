@@ -109,11 +109,11 @@ app.post('/delete', bodyParser.json(), function(request, response) {
 })
 
 // modify a task
-// app.post( '/update', (request,response) => {
-//   collection
-//     .updateOne(
-//       { _id:mongodb.ObjectID( request.body._id ) },
-//       { $set:{ yourtask:request.body.yourtask, date: request.body.date, priority: request.body.priority}}
-//     )
-//     .then( result => response.json( result ) )
-// })
+app.post( '/update', (request,response) => {
+  collection
+    .updateOne(
+      { _id:mongodb.ObjectID( request.body._id ) },
+      { $set:{ yourtask:request.body.yourtask, date: request.body.date, priority: request.body.priority}}
+    )
+    .then( result => response.json( result ) )
+})

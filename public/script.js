@@ -61,7 +61,11 @@ function updateTable(json) {
         "Content-Type": "application/json"
       }
     })
-    .then
+    .then (response => response.json())
+    .then(json => {
+      update.remove();
+      updateTable(json)
+    })
   })
   
   date.innerHTML = json.date;
@@ -69,7 +73,7 @@ function updateTable(json) {
   priority.innerHTML = json.priority;
   advice.innerHTML = json.message;
   remove.appendChild(deleteButton);
-  updateButton.appendChile(updateButton);
+  edit.appendChild(updateButton);
   // update.insertCell(4).innerHTML = json.delete;
   
   // return update
