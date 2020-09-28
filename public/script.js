@@ -19,19 +19,19 @@ function displayRadioValue() {
 const tasksList = document.getElementById("tasks");
 const tasksForm = document.querySelector("form");
 
-function updateTable(json) {
-  const tableBody = document.getElementById("taskBody");
-  let update = tableBody.insertRow(-1);
+// function updateTable(json) {
+//   const tableBody = document.getElementById("taskBody");
+//   const update = tableBody.insertRow(-1);
 
-  update.insertCell(0).innerHTML = json.date;
-  update.insertCell(1).innerHTML = json.yourtask;
-  update.insertCell(2).innerHTML = json.priority;
-  update.insertCell(3).innerHTML = json.message;
-  // update.insertCell(4).innerHTML = json.delete;
+//   update.insertCell(0).innerHTML = json.date;
+//   update.insertCell(1).innerHTML = json.yourtask;
+//   update.insertCell(2).innerHTML = json.priority;
+//   update.insertCell(3).innerHTML = json.message;
+//   // update.insertCell(4).innerHTML = json.delete;
   
-  return update
+//   // return update
   
-}
+// }
 
 // a helper function that creates a list item for a given dream
 function appendNewTask(task) {
@@ -48,7 +48,13 @@ function appendNewTask(task) {
   //   "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +
   //   "ADVICE: " +
   //   String(task.message);
-  const newListItem = updateTable(task)
+  const tableBody = document.getElementById("taskBody");
+  const newListItem = tableBody.insertRow(-1);
+
+  newListItem.insertCell(0).innerHTML = task.date;
+  newListItem.insertCell(1).innerHTML = task.yourtask;
+  newListItem.insertCell(2).innerHTML = task.priority;
+  newListItem.insertCell(3).innerHTML = task.message;
  
   newListItem.ondblclick = function() {
     fetch("/delete", {
