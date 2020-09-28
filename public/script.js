@@ -12,6 +12,10 @@ function displayRadioValue() {
   }
 }
 
+document.getElementById("Login").onclick = function () {
+  location.href = "views/login.html"
+}
+
 // define variables that reference elements on our page
 
 // const dreamsList = document.getElementById("dreams");
