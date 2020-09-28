@@ -29,6 +29,8 @@ function updateTable(json) {
   update.insertCell(3).innerHTML = json.message;
   update.insertCell(4).innerHTML = json.delete;
   
+  
+  
 }
 
 // a helper function that creates a list item for a given dream
@@ -46,7 +48,24 @@ function appendNewTask(task) {
   //   "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +
   //   "ADVICE: " +
   //   String(task.message);
-  updateTable(task)
+  const tableBody = document.getElementById("taskBody");
+  let newListItem = tableBody.insertRow(0);
+
+  let date = newListItem.insertCell(0)
+  let newtask = newListItem.insertCell(1)
+  let priority = newListItem.insertCell(2)
+  let advice = newListItem.insertCell(3)
+  // newListItem.insertCell(0).innerHTML = task.date;
+  // newListItem.insertCell(1).innerHTML = task.yourtask;
+  // newListItem.insertCell(2).innerHTML = task.priority;
+  newListItem.insertCell(3).innerHTML = task.message;
+  newListItem.insertCell(4).innerHTML = task.delete;
+  
+  date.contenteditable = "true"
+  newtask.contenteditable = "true"
+  priority.contenteditable = "true"
+  advice.contenteditable = "true"
+  // const newListItem = updateTable(task)
 
   newListItem.ondblclick = function() {
     fetch("/delete", {
