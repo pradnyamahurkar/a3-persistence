@@ -8,6 +8,19 @@ const loginButton = document.getElementById("login");
 const signupButton = document.getElementById("signup");
 let user = null
 
+function listStudents(json){
+  let winrate = 0;
+  let numRows = table.rows.length-1;
+  // first delete all existing rows on the user page
+  for(let i=0; i<numRows; i++){
+    table.deleteRow(1);
+  }
+  // then display all information from the database
+  for(let j=0; j<json.length; j++) {
+    enrollStudent(json[j]);
+    winrate = winrate + Number(json[j].record);
+  }
+  
 function getRoster(){
   fetch("/results", {
     method:"GET",
@@ -20,7 +33,6 @@ function getRoster(){
     listStudents(json);
   })
 }
-
 
 
 // login function
