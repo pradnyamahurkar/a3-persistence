@@ -3,6 +3,39 @@
 
 console.log("hello world :o");
 
+const loginForm = document.getElementById("loginregister");
+const loginButton = document.getElementById("login");
+const signupButton = document.getElementById("signup");
+
+function login(e) {
+    e.preventDefault();
+
+    let sensei = document.getElementById("user").value;
+    let password = document.getElementById("password").value;
+
+    fetch('/login', {
+      method: "POST",
+      body: JSON.stringify({sensei, password}),
+      headers: {
+        "Content-Type":"application/json"
+      }
+    })
+    .then(async function(response) {
+      if (response.status === 200) {
+        let json = await response.json();
+        let username = json.username;
+        document.title = "Dojo Roster Management";
+        document.getElementById("loginPage").hidden = true;
+        document.getElementById("mainPage").hidden = false;
+        senseiElement.innerText = username;
+        getRoster();
+      } 
+      else {
+        window.alert("Incorrect username or password");
+      }
+    });
+}
+
 // function for getting the checked radio button
 function displayRadioValue() {
   var ele = document.getElementsByName("priority");
