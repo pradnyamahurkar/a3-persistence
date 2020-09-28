@@ -28,9 +28,16 @@ function updateTable(json) {
   let priority = update.insertCell(2)
   let advice = update.insertCell(3)
   let remove = update.insertCell(4)
+  let edit = update.insertCell(5)
+  
+  date.contentEditable = "true"
+  yourtask.contentEditable = "true"
+  priority.contentEditable = "true"
+  advice.contentEditable = "true"
   
   var deleteButton = document.createElement("Button")
-  deleteButton.onClick = function () {
+  deleteButton.innerHTML = "Delete"
+  deleteButton.addEventListener("click", function () {
     fetch("/delete", {
       method: "POST",
       body: JSON.stringify({ id: json._id }),
@@ -42,13 +49,27 @@ function updateTable(json) {
       .then(json => {
         update.remove();
       });
-  };
+  });
+  
+  var updateButton = document.createElement("Button")
+  updateButton.innerHTML = "Update"
+  updateButton.addEventListener("click", function() {
+    fetch("/update", {
+      method: "POST",
+      body: JSON.stringify({ id: json._id, object: json }),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+    .then
+  })
   
   date.innerHTML = json.date;
   yourtask.innerHTML = json.yourtask;
   priority.innerHTML = json.priority;
   advice.innerHTML = json.message;
   remove.appendChild(deleteButton);
+  updateButton.appendChile(updateButton);
   // update.insertCell(4).innerHTML = json.delete;
   
   // return update
