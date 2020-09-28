@@ -11,10 +11,10 @@
     <title>Welcome to Glitch!</title>
 
     <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon"> -->
-    <!-- import the webpage's stylesheet -->
+<!-- import the webpage's stylesheet -->
 <!--     <link rel="stylesheet" href="/style.css"> -->
 
-    <!-- import the webpage's client-side javascript file -->
+<!-- import the webpage's client-side javascript file -->
 <!--     <script src="/script.js" defer></script>
   </head>
   <body>
@@ -44,7 +44,7 @@
 
     <footer>Made with <a href="https://glitch.com">Glitch</a>!</footer>
  -->
-    <!-- include the Glitch button to show what the webpage is about and
+<!-- include the Glitch button to show what the webpage is about and
           to make it easier for folks to view source and remix -->
 <!--     <div class="glitchButton" style="position:fixed;top:2em;right:20px;"></div>
     <script src="https://button.glitch.me/button.js" defer></script>
@@ -53,9 +53,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-<!--     <link rel="stylesheet" href="public/style.css" type="text/css" /> -->
-<!--     <link rel="stylesheet" href="/style.css"> -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/light.min.css">    
+    <!--     <link rel="stylesheet" href="public/style.css" type="text/css" /> -->
+    <!--     <link rel="stylesheet" href="/style.css"> -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/kognise/water.css@latest/dist/light.min.css"
+    />
     <script src="/script.js" defer></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lobster&display=swap"
@@ -69,67 +72,66 @@
       To-Do List and Your Work Advisor
     </h1>
     <p>
-      Never created a To-Do list before? Read the article: <a href="https://www.themuse.com/advice/8-expertbacked-secrets-to-making-the-perfect-todo-list">8 Expert-Backed Secrets to Making the Perfect To-Do List!</a>
+      Never created a To-Do list before? Read the article:
+      <a
+        href="https://www.themuse.com/advice/8-expertbacked-secrets-to-making-the-perfect-todo-list"
+        >8 Expert-Backed Secrets to Making the Perfect To-Do List!</a
+      >
     </p>
     <form action="">
       <p>
-        <span style="color:#FF0000">Required fields</span> are in red and marked with an *
+        <span style="color:#FF0000">Required fields</span> are in red and marked
+        with an *
       </p>
-<!--       <ul class="wrapper"> -->
-<!--         <li class="form-row"> -->
-          <b><label style="color:#FF0000" for="yourtask">Task*</label></b>
+      <!--       <ul class="wrapper"> -->
+      <!--         <li class="form-row"> -->
+      <b><label style="color:#FF0000" for="yourtask">Task*</label></b>
       <p>
-        In this field, add the task that you need to complete in the future. 
-        For example: Buy groceries from Trader Joes
+        In this field, add the task that you need to complete in the future. For
+        example: Buy groceries from Trader Joes
       </p>
-          <input type="text" id="yourtask" />
-<!--         </li> -->
-<!--         <li class="form-row"> -->
-          <b><label for="taskduedate">Due Date and Time</label></b>
-          <input type="datetime-local" id="taskduedate" />
+      <input type="text" id="yourtask" />
+      <!--         </li> -->
+      <!--         <li class="form-row"> -->
       <p>
-
-        For example: 09/22/2020 at 12:00pm
+        Enter the due date and time for the task that you entered in the
+        previous field. For example: 09/22/2020 at 12:00pm
       </p>
-<!--         </li> -->
-<!--         <li class="form-row"> -->
-          <b><label style="color:#FF0000">Priority*</label><br> </b>
-          <input
-            type="radio"
-            id="priority1"
-            name="priority"
-            value="high_priority"
-          />
-          <label for="priority1" id="high"> High Priority </label><br />
-          <input
-            type="radio"
-            id="priority2"
-            name="priority"
-            value="med_priority"
-          />
-          <label for="priority2" id="med"> Medium Priority </label><br />
-          <input
-            type="radio"
-            id="priority3"
-            name="priority"
-            value="low_priority"
-          />
-          <label for="priority3" id="low"> Low Priority </label><br /><br />
-<!--         </li> -->
-<!--         <li class="form-row"> -->
-          <button class="submit" id="submit">Add Task</button>
-<!--           <button class="modify" id="modify">Modify a Task</button> -->
-<!--         </li> -->
-<!--       </ul> -->
+      <b><label for="taskduedate">Due Date and Time</label></b>
+      <input type="datetime-local" id="taskduedate" />
+      <p>
+        Select the priority level for the task that you entered in the task
+        field. Select one of the radios to indicate your priority level.
+      </p>
+      <!--         </li> -->
+      <!--         <li class="form-row"> -->
+      <b><label style="color:#FF0000">Priority*</label><br /> </b>
+      <input
+        type="radio"
+        id="priority1"
+        name="priority"
+        value="high_priority"
+      />
+      <label for="priority1" id="high"> High Priority </label><br />
+      <input type="radio" id="priority2" name="priority" value="med_priority" />
+      <label for="priority2" id="med"> Medium Priority </label><br />
+      <input type="radio" id="priority3" name="priority" value="low_priority" />
+      <label for="priority3" id="low"> Low Priority </label><br /><br />
+      <!--         </li> -->
+      <!--         <li class="form-row"> -->
+      <button class="submit" id="submit">Add Task</button>
+      <!--           <button class="modify" id="modify">Modify a Task</button> -->
+      <!--         </li> -->
+      <!--       </ul> -->
     </form>
     <br />
 
     <section class="tasks">
-        <ul id="tasks">
-<!--           <em>loading tasks&hellip;</em> -->
-        </ul>
-      </section>
-  
+      <ul id="tasks">
+        <!--           <em>loading tasks&hellip;</em> -->
+      </ul>
+    </section>
+
     <table id="toDoTable">
       <tr>
         <th>Due Date</th>
@@ -139,7 +141,7 @@
       </tr>
       <tbody id="taskBody"></tbody>
     </table>
-<!--     <script>
+    <!--     <script>
       function updateTable(json) {
         const tableBody = document.getElementById("taskBody");
         let update = tableBody.insertRow(0);
@@ -189,6 +191,6 @@
         button.onclick = submit;
       };
     </script> -->
-        <script src="https://button.glitch.me/button.js" defer></script>
+    <script src="https://button.glitch.me/button.js" defer></script>
   </body>
 </html>
