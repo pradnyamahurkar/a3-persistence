@@ -6,6 +6,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
+const passport = require("passport");
 
 // our default array of dreams
 const tasks = [
@@ -96,3 +97,11 @@ app.post("/update", (request, response) => {
     )
     .then(result => response.json(result));
 });
+
+app.post('/login', bodyParser.json(),
+    passport.authenticate('local', {failureFlash: false}), function(request, response) {
+      response.json({user: request.user});
+    }
+);
+
+
