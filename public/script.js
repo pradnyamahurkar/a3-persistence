@@ -22,7 +22,7 @@ function displayRadioValue() {
 // const dreamsList = document.getElementById("dreams");
 // reference to the list of tasks and refer to the form
 const tasksList = document.getElementById("tasks");
-const tasksForm = document.querySelector("form");
+const tasksForm = document.getElementById("todoform");
 
 function updateTable(json) {
   const tableBody = document.getElementById("taskBody");
@@ -84,20 +84,6 @@ function updateTable(json) {
 // a helper function that creates a list item for a given dream
 function appendNewTask(task) {
   const newListItem = updateTable(task);
-
-  // newListItem.ondblclick = function() {
-  //   fetch("/delete", {
-  //     method: "POST",
-  //     body: JSON.stringify({ id: task._id }),
-  //     headers: {
-  //       "Content-Type": "application/json"
-  //     }
-  //   })
-  //     .then(response => response.json())
-  //     .then(json => {
-  //       newListItem.remove();
-  //     });
-  // };
 
   tasksList.appendChild(newListItem);
 }

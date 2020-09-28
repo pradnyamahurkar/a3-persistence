@@ -46,6 +46,7 @@ app.post("/add", bodyParser.json(), function(request, response) {
   // return a promise, it will sh ow the data with the unique id
   collection.insertOne(request.body).then(dbresponse => {
     let newtask = dbresponse.ops[0];
+    console.log(dbresponse.ops[0])
     if (newtask["priority"] === "med_priority") {
       newtask["priority"] = "Medium";
       newtask["message"] =
