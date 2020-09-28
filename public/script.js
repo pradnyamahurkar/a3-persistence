@@ -12,7 +12,7 @@ function getRoster(){
   fetch("/results", {
     method:"GET",
     headers: {
-      "user": senseiElement.innerText
+      "user": user
     }
   })
   .then( response => response.json() )
