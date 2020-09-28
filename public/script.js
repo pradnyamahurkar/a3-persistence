@@ -23,13 +23,18 @@ function updateTable(json) {
   const tableBody = document.getElementById("taskBody");
   let update = tableBody.insertRow(-1);
 
-  // update.insertCell(0).innerHTML = json.date;
-  // update.insertCell(1).innerHTML = json.yourtask;
-  // update.insertCell(2).innerHTML = json.priority;
-  // update.insertCell(3).innerHTML = json.message;
+  let date = update.insertCell(0)
+  let yourtask = update.insertCell(1)
+  let priority = update.insertCell(2)
+  let advice = update.insertCell(3)
+  
+  date.innerHTML = json.date;
+  yourtask.innerHTML = json.yourtask;
+  priority.innerHTML = json.priority;
+  advice.innerHTML = json.message;
   // update.insertCell(4).innerHTML = json.delete;
   
-  return update
+  // return update
   
 }
 
@@ -48,14 +53,9 @@ function appendNewTask(task) {
   //   "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +
   //   "ADVICE: " +
   //   String(task.message);
-  const update = updateTable(task)
-  update.insertCell(0).innerHTML = task.date;
-  update.insertCell(1).innerHTML = task.yourtask;
-  update.insertCell(2).innerHTML = task.priority;
-  update.insertCell(3).innerHTML = task.message;
-  // update.insertCell(4).innerHTML = json.delete;
+  const newListItem = updateTable(task)
  
-  update.ondblclick = function() {
+  newListItem.ondblclick = function() {
     fetch("/delete", {
       method: "POST",
       body: JSON.stringify({ id: task._id }),
@@ -65,7 +65,7 @@ function appendNewTask(task) {
     })
       .then(response => response.json())
       .then(json => {
-        update.remove();
+        newListItem.remove();
       });
   };
 
@@ -92,7 +92,7 @@ function appendNewTask(task) {
   //     })
   //   });
   // };
-  tasksList.appendChild(update);
+  tasksList.appendChild(newListItem);
 }
 
 // fetch the initial list of tasks
