@@ -7,34 +7,31 @@ const loginForm = document.getElementById("loginregister");
 const loginButton = document.getElementById("login");
 const signupButton = document.getElementById("signup");
 
-function login(e) {
-    e.preventDefault();
+// login function
+// function login(e) {
+//     e.preventDefault();
 
-    let sensei = document.getElementById("user").value;
-    let password = document.getElementById("password").value;
+//     let sensei = document.getElementById("user").value;
+//     let password = document.getElementById("password").value;
 
-    fetch('/login', {
-      method: "POST",
-      body: JSON.stringify({sensei, password}),
-      headers: {
-        "Content-Type":"application/json"
-      }
-    })
-    .then(async function(response) {
-      if (response.status === 200) {
-        let json = await response.json();
-        let username = json.username;
-        document.title = "Dojo Roster Management";
-        document.getElementById("loginPage").hidden = true;
-        document.getElementById("mainPage").hidden = false;
-        senseiElement.innerText = username;
-        getRoster();
-      } 
-      else {
-        window.alert("Incorrect username or password");
-      }
-    });
-}
+//     fetch('/login', {
+//       method: "POST",
+//       body: JSON.stringify({sensei, password}),
+//       headers: {
+//         "Content-Type":"application/json"
+//       }
+//     })
+//     .then(async function(response) {
+//       if (response.status === 200) {
+//         let json = await response.json();
+//         let username = json.user;
+//         getRoster();
+//       } 
+//       else {
+//         window.alert("Incorrect username or password");
+//       }
+//     });
+// }
 
 // function for getting the checked radio button
 function displayRadioValue() {
@@ -119,19 +116,6 @@ function updateTable(json) {
 
 // a helper function that creates a list item for a given dream
 function appendNewTask(task) {
-  // const newListItem = document.createElement("li");
-  // newListItem.innerText =
-  //   "TASK: " +
-  //   String(task.yourtask) +
-  //   "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +
-  //   "DUE DATE: " +
-  //   String(task.date) +
-  //   "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +
-  //   "PRIORITY: " +
-  //   String(task.priority) +
-  //   "\xa0\xa0\xa0\xa0\xa0\xa0\xa0" +
-  //   "ADVICE: " +
-  //   String(task.message);
   const newListItem = updateTable(task)
  
   newListItem.ondblclick = function() {
