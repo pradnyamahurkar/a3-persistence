@@ -6,32 +6,33 @@ console.log("hello world :o");
 const loginForm = document.getElementById("loginregister");
 const loginButton = document.getElementById("login");
 const signupButton = document.getElementById("signup");
+let user = null
 
 // login function
-// function login(e) {
-//     e.preventDefault();
+function login(e) {
+    e.preventDefault();
 
-//     let sensei = document.getElementById("user").value;
-//     let password = document.getElementById("password").value;
+    let user = document.getElementById("user").value;
+    let password = document.getElementById("password").value;
 
-//     fetch('/login', {
-//       method: "POST",
-//       body: JSON.stringify({sensei, password}),
-//       headers: {
-//         "Content-Type":"application/json"
-//       }
-//     })
-//     .then(async function(response) {
-//       if (response.status === 200) {
-//         let json = await response.json();
-//         let username = json.user;
-//         getRoster();
-//       } 
-//       else {
-//         window.alert("Incorrect username or password");
-//       }
-//     });
-// }
+    fetch('/login', {
+      method: "POST",
+      body: JSON.stringify({user, password}),
+      headers: {
+        "Content-Type":"application/json"
+      }
+    })
+    .then(async function(response) {
+      if (response.status === 200) {
+        let json = await response.json();
+        let username = json.user;
+        getRoster();
+      } 
+      else {
+        window.alert("Incorrect username or password");
+      }
+    });
+}
 
 // function for getting the checked radio button
 function displayRadioValue() {
@@ -108,9 +109,6 @@ function updateTable(json) {
   advice.innerHTML = json.message;
   remove.appendChild(deleteButton);
   edit.appendChild(updateButton);
-  // update.insertCell(4).innerHTML = json.delete;
-  
-  // return update
   
 }
 
@@ -132,29 +130,6 @@ function appendNewTask(task) {
       });
   };
 
-  // click on the list item once
-  // enter your new task in the task field
-  //send the id and the task to the server
-  // get back a json, delete the new list item
-  // create a new one with similar information
-  // newListItem.onclick = function() {
-  //   tasksForm.addEventListener("modify", event => {
-  //     // stop our form submission from refreshing the page
-  //     let modifiedtask = document.querySelector("#yourtask");
-  //     event.preventDefault();
-  //     fetch("/update", {
-  //       method: "POST",
-  //       body: JSON.stringify({id: task._id, yourtask: modifiedtask, date: task.date, priority: task.priority}),
-  //       headers: {
-  //         "Content-Type": "application/json"
-  //       }
-  //     })
-  //     .then(response => response.json())
-  //     .then(json => {
-  //       newListItem.task = json.task;
-  //     })
-  //   });
-  // };
   tasksList.appendChild(newListItem);
 }
 
@@ -177,7 +152,7 @@ tasksForm.addEventListener("submit", event => {
     input2 = document.querySelector("#taskduedate"),
     input3 = displayRadioValue(),
     json1 = {
-      user: 
+      user,
       yourtask: input1.value,
       date: input2.value,
       priority: input3
