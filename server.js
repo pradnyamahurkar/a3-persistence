@@ -6,12 +6,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
-// const passport = require("passport");
-// const LocalStrategy = require('passport-local').Strategy;
-// const helmet = require('helmet');
-
-let auth = null
-
 
 // our default array of dreams
 const tasks = [
@@ -78,15 +72,6 @@ app.post("/delete", bodyParser.json(), function(request, response) {
     .then(result => response.json(result));
 });
 
-// app.get("/results", function(request, response) {
-//   collection.find({ user: request.user })
-//   .toArray()
-//   .then(tasks => {
-//     console.log(`Successfully found ${tasks.length} document(s) for user ${request.user}.`);
-//     response.json( tasks );
-//   })
-// })
-
 // modify a task
 app.post("/update", (request, response) => {
   collection
@@ -102,30 +87,3 @@ app.post("/update", (request, response) => {
     )
     .then(result => response.json(result));
 });
-
-// app.post('/login', bodyParser.json(),
-//     passport.authenticate('local', {failureFlash: false}), function(request, response) {
-//       response.json({user: request.user});
-//     }
-// );
-
-// passport.use(new LocalStrategy({
-//     usernameField: 'sensei',
-//     passwordField: 'password'
-//     },
-//     function (sensei, password, done) {
-//         auth.find({ sensei: sensei, password: password }).toArray()
-//         .then(function (result) {
-//             if (result.length >= 1) {
-//                 return done(null, sensei);
-//             } else {
-//                 return done(null, false, { message: "Incorrect username or password" });
-//             }
-//         });
-//     }
-// ));
-
-// app.post("/register", bodyParser.json(), function (request, response) {
-//     auth.insertOne(request.body)
-//     .then(() => response.sendStatus(200));
-// })

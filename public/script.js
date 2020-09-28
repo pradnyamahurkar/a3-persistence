@@ -3,63 +3,10 @@
 
 console.log("hello world :o");
 
-const loginForm = document.getElementById("loginregister");
-const loginButton = document.getElementById("login");
-const signupButton = document.getElementById("signup");
-let user = null
+// const loginForm = document.getElementById("loginregister");
+// const loginButton = document.getElementById("login");
+// const signupButton = document.getElementById("signup");
 
-// function listStudents(json){
-//   let winrate = 0;
-//   let numRows = table.rows.length-1;
-//   // first delete all existing rows on the user page
-//   for(let i=0; i<numRows; i++){
-//     table.deleteRow(1);
-//   }
-//   // then display all information from the database
-//   for(let j=0; j<json.length; j++) {
-//     enrollStudent(json[j]);
-//     winrate = winrate + Number(json[j].record);
-//   }
-  
-// function getRoster(){
-//   fetch("/results", {
-//     method:"GET",
-//     headers: {
-//       "user": user
-//     }
-//   })
-//   .then( response => response.json() )
-//   .then( json => {
-//     listStudents(json);
-//   })
-// }
-
-
-// login function
-// function login(e) {
-//     e.preventDefault();
-
-//     let user = document.getElementById("user").value;
-//     let password = document.getElementById("password").value;
-
-//     fetch('/login', {
-//       method: "POST",
-//       body: JSON.stringify({user, password}),
-//       headers: {
-//         "Content-Type":"application/json"
-//       }
-//     })
-//     .then(async function(response) {
-//       if (response.status === 200) {
-//         let json = await response.json();
-//         let username = json.user;
-//         getRoster();
-//       } 
-//       else {
-//         window.alert("Incorrect username or password");
-//       }
-//     });
-// }
 
 // function for getting the checked radio button
 function displayRadioValue() {
@@ -81,21 +28,21 @@ function updateTable(json) {
   const tableBody = document.getElementById("taskBody");
   let update = tableBody.insertRow(-1);
 
-  let date = update.insertCell(0)
-  let yourtask = update.insertCell(1)
-  let priority = update.insertCell(2)
-  let advice = update.insertCell(3)
-  let remove = update.insertCell(4)
-  let edit = update.insertCell(5)
-  
-  date.contentEditable = "true"
-  yourtask.contentEditable = "true"
-  priority.contentEditable = "true"
-  advice.contentEditable = "true"
-  
-  var deleteButton = document.createElement("Button")
-  deleteButton.innerHTML = "Delete"
-  deleteButton.addEventListener("click", function () {
+  let date = update.insertCell(0);
+  let yourtask = update.insertCell(1);
+  let priority = update.insertCell(2);
+  let advice = update.insertCell(3);
+  let remove = update.insertCell(4);
+  let edit = update.insertCell(5);
+
+  date.contentEditable = "true";
+  yourtask.contentEditable = "true";
+  priority.contentEditable = "true";
+  advice.contentEditable = "true";
+
+  var deleteButton = document.createElement("Button");
+  deleteButton.innerHTML = "Delete";
+  deleteButton.addEventListener("click", function() {
     fetch("/delete", {
       method: "POST",
       body: JSON.stringify({ id: json._id }),
@@ -108,9 +55,9 @@ function updateTable(json) {
         update.remove();
       });
   });
-  
-  var updateButton = document.createElement("Button")
-  updateButton.innerHTML = "Update"
+
+  var updateButton = document.createElement("Button");
+  updateButton.innerHTML = "Update";
   updateButton.addEventListener("click", function() {
     fetch("/update", {
       method: "POST",
@@ -119,26 +66,25 @@ function updateTable(json) {
         "Content-Type": "application/json"
       }
     })
-    .then (response => response.json())
-    .then(json => {
-      update.remove();
-      updateTable(json)
-    })
-  })
-  
+      .then(response => response.json())
+      .then(json => {
+        update.remove();
+        updateTable(json);
+      });
+  });
+
   date.innerHTML = json.date;
   yourtask.innerHTML = json.yourtask;
   priority.innerHTML = json.priority;
   advice.innerHTML = json.message;
   remove.appendChild(deleteButton);
   edit.appendChild(updateButton);
-  
 }
 
 // a helper function that creates a list item for a given dream
 function appendNewTask(task) {
-  const newListItem = updateTable(task)
- 
+  const newListItem = updateTable(task);
+
   // newListItem.ondblclick = function() {
   //   fetch("/delete", {
   //     method: "POST",
