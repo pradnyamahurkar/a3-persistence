@@ -6,8 +6,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
-const passport = require("passport");
-const LocalStrategy = require('passport-local').Strategy;
+// const passport = require("passport");
+// const LocalStrategy = require('passport-local').Strategy;
 // const helmet = require('helmet');
 
 let auth = null

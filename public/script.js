@@ -175,7 +175,7 @@ tasksForm.addEventListener("submit", event => {
     input2 = document.querySelector("#taskduedate"),
     input3 = displayRadioValue(),
     json1 = {
-      user,
+      // user,
       yourtask: input1.value,
       date: input2.value,
       priority: input3
