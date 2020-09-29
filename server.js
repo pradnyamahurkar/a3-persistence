@@ -36,8 +36,10 @@ const uri = `mongodb+srv://pdm:${process.env.dbpwd}@cluster0.blnob.gcp.mongodb.n
 const client = new MongoClient(uri, { useNewUrlParser: true });
 
 let collection = null;
+let userCollection = null;
 client.connect(err => {
   collection = client.db("assignment3").collection("tasks");
+  userCollection = client.db("assignment3").collection("users");
   // perform actions on the collection object
 });
 
@@ -92,6 +94,12 @@ app.post("/update", (request, response) => {
       }
     )
     .then(result => response.json(result));
+});
+
+app.post("/adduser", bodyParser.json(), function(req, res) {
+  userCollection.insertOne(req.body).then(dbresponse => {
+    res.json(dbresponse.ops[0]);
+  });
 });
 
 app.use(helmet());

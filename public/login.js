@@ -41,7 +41,7 @@ login.addEventListener("buttonlogin", event => {
 
   if(createAccount) {
     
-    fetch("/add", {
+    fetch("/adduser", {
       method: "POST",
       body: JSON.stringify({ user: newUser, pass: newPass }),
       headers: {
@@ -53,7 +53,7 @@ login.addEventListener("buttonlogin", event => {
         addUser(json.user, json.pass, json._id);
         account = json.user;
         localStorage.setItem("account", newUser);
-        document.location.href = "/schedule.html";
+        alert("Successfully logged in!");
       });
     
   }
@@ -61,4 +61,5 @@ login.addEventListener("buttonlogin", event => {
   login.reset();
   login.elements.username.focus();
 });
+
 
