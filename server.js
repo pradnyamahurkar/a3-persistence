@@ -8,8 +8,10 @@ const bodyParser = require("body-parser");
 const app = express();
 var helmet = require("helmet");
 var compression = require("compression")
+const morgan = require("morgan")
+const errorhandler = require("errorhandler")
 
-// our default array of dreams
+// our default array of dreamss
 const tasks = [
 ];
 
@@ -111,4 +113,8 @@ app.post("/tasks", bodyParser.json(), function(req, res) {
   })
 })
 
+app.use( function( req, res, next) {
+  morgan('tiny');
+  next()
+})
 app.use(helmet());
