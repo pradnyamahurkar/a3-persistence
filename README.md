@@ -19,7 +19,9 @@ I used the CSS framework called water. I used it because it had a clean and basi
   I did not change any of the actual code in the CSS framework. However, I did change the color of some of my labels using HTML so that I could make the website more accessible. 
 - the five Express middleware packages you used and a short (one sentence) summary of what each one does
 1. bodyParser: I used it to parse the HTTP requests.
-2. 
+2. helmet: to help secure my app
+3. compression: to compress http responses
+4. 
 
 ## Technical Achievements
 - **Tech Achievement 1**: I used OAuth authentication via the GitHub strategy
