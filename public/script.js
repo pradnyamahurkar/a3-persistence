@@ -136,7 +136,7 @@ var account = "guest";
 
 // const meetingList = document.getElementById("meetings");
 const login = document.getElementById("login");
-const error = document.getElementById("error");
+// const error = document.getElementById("error");
 
 function addUser(user, pass, id) {
   const newUser = document.createElement("li");
@@ -152,8 +152,8 @@ function addUser(user, pass, id) {
 login.addEventListener("click", event => {
   event.preventDefault();
 
-  let newUser = login.elements.user.value;
-  let newPass = login.elements.password.value;
+  let newUser = document.getElementById("loginregister").elements[0].value;
+  let newPass = document.getElementById("loginregister").elements[1].value;
 
   let createAccount = true;
 
@@ -165,8 +165,7 @@ login.addEventListener("click", event => {
         localStorage.setItem("account", newUser);
         alert("Successfully logged in!");
       } else {
-        error.innerHTML =
-          "<span class='label label-danger'>ERROR: Wrong Password for this Username</span>";
+        alert("Incorrect Username or Password")
       }
     }
   });
