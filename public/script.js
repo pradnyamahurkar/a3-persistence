@@ -107,7 +107,7 @@ tasksForm.addEventListener("submit", event => {
     input2 = document.querySelector("#taskduedate"),
     input3 = displayRadioValue(),
     json1 = {
-      user: accou,
+      account,
       yourtask: input1.value,
       date: input2.value,
       priority: input3
@@ -130,20 +130,6 @@ tasksForm.addEventListener("submit", event => {
   tasksForm.reset();
   tasksForm.elements.yourtask.focus();
 });
-
-fetch("/tasks", {
-  method: "POST",
-  body: JSON.stringify({ account: newUser}),
-  headers: {
-    "Content-Type": "application/json"
-  }
-})
-  .then(res => res.json())
-  .then(json => {
-    Array.from(json).forEach(task =>
-      appendNewTask(task)
-    );
-  });
 
 var users = [];
 var meetings = [];
@@ -199,6 +185,18 @@ login.addEventListener("click", event => {
         account = json.user;
         localStorage.setItem("account", newUser);
         alert("Successfully logged in!");
+      });
+
+    fetch("/tasks", {
+      method: "POST",
+      body: JSON.stringify({ account: newUser }),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(res => res.json())
+      .then(json => {
+        Array.from(json).forEach(task => appendNewTask(task));
       });
   }
 

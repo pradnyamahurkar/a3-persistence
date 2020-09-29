@@ -104,8 +104,9 @@ app.post("/adduser", bodyParser.json(), function(request, response) {
 });
 
 app.post("/tasks", bodyParser.json(), function(req, res) {
-  userCollection.find({ "user": req.body.account }).toArray()
+  collection.find({ "user": req.body.account }).toArray()
     .then(dbresponse => {
+    console.log(dbresponse)
     res.json(dbresponse);
   })
 })
