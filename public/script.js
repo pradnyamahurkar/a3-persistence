@@ -150,6 +150,23 @@ function addUser(user, pass, id) {
   });
 }
 
+function giveAdvice(newtask) {
+  if (newtask["priority"] === "med_priority") {
+      newtask["priority"] = "Medium";
+      newtask["message"] =
+        "Finish your high priority tasks first and then get to this!";
+    }
+    if (newtask["priority"] === "high_priority") {
+      newtask["priority"] = "High";
+      newtask["message"] = "Finish this task first!";
+    }
+    if (newtask["priority"] === "low_priority") {
+      newtask["priority"] = "Low";
+      newtask["message"] =
+        "Make sure you finish this task but also take out some time for yourself :D";
+    }
+}
+
 login.addEventListener("click", event => {
   event.preventDefault();
 
