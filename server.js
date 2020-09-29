@@ -103,4 +103,10 @@ app.post("/adduser", bodyParser.json(), function(request, response) {
   });
 });
 
+app.post("/meetings", bodyParser.json(), function(req, res) {
+  userCollection.find({ "user": req.body.account }).toArray().then(dbresponse => {
+    res.json(dbresponse);
+  })
+})
+
 app.use(helmet());
