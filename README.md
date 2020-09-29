@@ -5,14 +5,14 @@ Due: September 28th, by 11:59 PM.
 
 ## To-Do List and Your Work Advisor
 
-Pradnya Mahurkar: your glitch (or alternative server) link e.g. http://a3-charlie-roberts.glitch.me
+Pradnya Mahurkar: https://a3-pradnya-mahurkar.glitch.me
 
 Include a very brief summary of your project here. Images are encouraged, along with concise, high-level text. Be sure to include:
 My project can be used for creating a to-do list. It allows the user to add/delete/modify the tasks too. It uses the express server and uses the mongoDB database to store the tasks. I have a login to the webpage so that the user can save the tasks that he/she need to store their tasks. The user automatically registers if he or she does not already have an account. The table at the bottom of the page shows the tasks for a particular user. I have also implemented some accessible friendly features which are listed in the achievements section.
 
 - the goal of the application: The goal of the application is to help the user create a to-do list.
 - challenges you faced in realizing the application: the biggest challenge that I faced was creating the login. I had no prior experience creating a login page, so I had to figure out how to do that. 
-- what authentication strategy you chose to use and why (choosing one because it seemed the easiest to implement is perfectly acceptable)
+- what authentication strategy you chose to use and why (choosing one because it seemed the easiest to implement is perfectly acceptable): I couldn't implement oauth github, but I did the basic mongodb authentication because it was easier to implement.
 - what CSS framework you used and why
 I used the CSS framework called water. I used it because it had a clean and basic design that I needed for my to-do list website.
   - include any modifications to the CSS framework you made via custom CSS you authored
@@ -21,7 +21,8 @@ I used the CSS framework called water. I used it because it had a clean and basi
 1. bodyParser: I used it to parse the HTTP requests.
 2. helmet: to help secure my app
 3. compression: to compress http responses
-4. 
+4. morgan: to log requests
+5. errorhandler: development error handing
 
 ## Technical Achievements
 - **Tech Achievement 1**: I used OAuth authentication via the GitHub strategy
