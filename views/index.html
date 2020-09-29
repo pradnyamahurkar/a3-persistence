@@ -22,8 +22,11 @@
       To-Do List and Your Work Advisor
     </h1>
     
+    <h2>
+      Login
+    </h2>
     <em><p>
-      Login to save your to-do list:
+      Login first to save your to-do list:
     </p></em>
     <form id="loginregister">
       <b><label for="user">Username</label></b>
@@ -34,10 +37,10 @@
     <button type="buttonlogin" id="login">
   Login
       </button>
-    <button type="buttonsignup" if="sign_up">
-      Register
-    </button>
   
+    <h2>
+      To-Do Form
+    </h2>
     <p>
       Never created a To-Do list before? Read the article:
       <a
@@ -45,9 +48,6 @@
         >8 Expert-Backed Secrets to Making the Perfect To-Do List!</a
       >
     </p>
-    <h2>
-      To-Do Form
-    </h2>
     <form id="todoform" action="">
       <p>
         <span style="color:#FF0000">Required fields</span> are in red and marked
@@ -56,32 +56,27 @@
       <!--       <ul class="wrapper"> -->
       <!--         <li class="form-row"> -->
       <b><label style="color:#FF0000" for="yourtask">Task*</label></b>
+      
+      <input type="text" id="yourtask" />
       <p>
         In this field, add the task that you need to complete in the future. For
         example: Buy groceries from Trader Joes
       </p>
-      <input type="text" id="yourtask" />
       <!--         </li> -->
       <!--         <li class="form-row"> -->
       
       <b><label for="taskduedate">Due Date and Time</label></b>
+      
+      <input type="datetime-local" id="taskduedate" />
       <p>
         Enter the due date and time for the task that you entered in the
         previous field. For example: 09/22/2020 at 12:00pm
       </p>
-      <input type="datetime-local" id="taskduedate" />
       
       <!--         </li> -->
       <!--         <li class="form-row"> -->
       <b><label style="color:#FF0000">Priority*</label><br /> </b>
-      <p>
-        Select the priority level for the task that you entered in the task
-        field. Select one of the radios to indicate your priority level. For example:
-      </p>
-      <img src="https://cdn.glitch.com/829a79ff-3c59-4889-b9e8-65bc0bf07930%2FScreen%20Shot%202020-09-28%20at%2011.49.39%20AM.png?v=1601308184344"><br>
-      <i><p>
-        Image: How to select a radio button
-      </p></i>
+      
       <input
         type="radio"
         id="priority1"
@@ -93,6 +88,14 @@
       <label for="priority2" id="med"> Medium Priority <img src="https://cdn.glitch.com/829a79ff-3c59-4889-b9e8-65bc0bf07930%2FUnknown.png?v=1601310177372" width="30"> </label><br />
       <input type="radio" id="priority3" name="priority" value="low_priority" />
       <label for="priority3" id="low"> Low Priority <img src="https://cdn.glitch.com/829a79ff-3c59-4889-b9e8-65bc0bf07930%2Flow-priority-2-563743.png?v=1601310273058" width="30"></label><br /><br />
+      <p>
+        Select the priority level for the task that you entered in the task
+        field. Select one of the radios to indicate your priority level. For example:
+      </p>
+      <img src="https://cdn.glitch.com/829a79ff-3c59-4889-b9e8-65bc0bf07930%2FScreen%20Shot%202020-09-28%20at%2011.49.39%20AM.png?v=1601308184344"><br>
+      <i><p>
+        Image: A smaller white circle appear inside a larger blue circle when you select a radio button
+      </p></i>
       <!--         </li> -->
       <!--         <li class="form-row"> -->
       <button class="submit" id="submit">Add Task</button>

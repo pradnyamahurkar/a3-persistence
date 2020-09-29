@@ -165,7 +165,7 @@ login.addEventListener("click", event => {
         localStorage.setItem("account", newUser);
         alert("Successfully logged in!");
       } else {
-        alert("Incorrect Username or Password")
+        alert("Incorrect Username or Password");
       }
     }
   });
