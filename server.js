@@ -49,8 +49,12 @@ app.post("/add", bodyParser.json(), function(request, response) {
   console.log("body:", request.body);
   console.log(collection);
   // response.json(request.body);
-  let newtask = request.body
-if (newtask["priority"] === "med_priority") {
+
+  // return a promise, it will sh ow the data with the unique id
+  collection.insertOne(request.body).then(dbresponse => {
+    let newtask = dbresponse.ops[0];
+    console.log(dbresponse.ops[0])
+    if (newtask["priority"] === "med_priority") {
       newtask["priority"] = "Medium";
       newtask["message"] =
         "Finish your high priority tasks first and then get to this!";
@@ -64,12 +68,7 @@ if (newtask["priority"] === "med_priority") {
       newtask["message"] =
         "Make sure you finish this task but also take out some time for yourself :D";
     }
-  // return a promise, it will sh ow the data with the unique id
-  collection.insertOne(request.body).then(dbresponse => {
-//     let newtask = dbresponse.ops[0];
-//     console.log(dbresponse.ops[0])
-    
-    response.json(dbresponse[0]);
+    response.json(newtask);
   });
 });
 

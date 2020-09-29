@@ -213,7 +213,7 @@ login.addEventListener("click", event => {
     })
       .then(res => res.json())
       .then(json => {
-        Array.from(json).forEach(task => appendNewTask(task));
+        json.forEach(task => appendNewTask(task));
       });
   }
 
