@@ -6,10 +6,15 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
+var helmet = require("helmet");
+var compression = require("compression")
 
 // our default array of dreams
 const tasks = [
 ];
+
+app.use(compression());
+
 
 // make all the files in 'public' available
 // https://expressjs.com/en/starter/static-files.html
@@ -88,3 +93,5 @@ app.post("/update", (request, response) => {
     )
     .then(result => response.json(result));
 });
+
+app.use(helmet());
