@@ -2,6 +2,7 @@
 // run by the browser each time the page is loaded
 
 console.log("hello world :o");
+var newUser = "";
 
 // const loginForm = document.getElementById("loginregister");
 // const loginButton = document.getElementById("login");
@@ -106,7 +107,7 @@ tasksForm.addEventListener("submit", event => {
     input2 = document.querySelector("#taskduedate"),
     input3 = displayRadioValue(),
     json1 = {
-      // user,
+      user: accou,
       yourtask: input1.value,
       date: input2.value,
       priority: input3
@@ -129,6 +130,20 @@ tasksForm.addEventListener("submit", event => {
   tasksForm.reset();
   tasksForm.elements.yourtask.focus();
 });
+
+fetch("/tasks", {
+  method: "POST",
+  body: JSON.stringify({ account: newUser}),
+  headers: {
+    "Content-Type": "application/json"
+  }
+})
+  .then(res => res.json())
+  .then(json => {
+    Array.from(json).forEach(task =>
+      appendNewTask(task)
+    );
+  });
 
 var users = [];
 var meetings = [];
