@@ -38,7 +38,7 @@ Designing for Web Accessibility
 - Provide sufficient contrast between foreground and background: There is a good contrast in the webpage. The background is white and the text is darkgrey and sometimes red (indicating a madatory field in the form).
 - Don’t use color alone to convey information: I used color and an * to convey mandatory fields. Just like the example shows on https://www.w3.org/WAI/tips/designing/
 - Ensure that form elements include clearly associated labels: All the buttons have labels indicating their functionality and all the fields in the form have labels indicating the value to be entered in the field. 
-- Use headings and spacing to group related content: Every section has a heading <h2> tag to it. It sepeates the login section from the form section and the form section from the to-do list section.
+- Use headings and spacing to group related content: Every section has a heading "<h2>" tag to it. It sepeates the login section from the form section and the form section from the to-do list section.
 - Include image and media alternatives in your design: I added images indicating the priority as an alternative to the text in the radio buttons
   
 Developing the Web Accessibility
@@ -47,11 +47,11 @@ Developing the Web Accessibility
 - **Design Achievement 2**: 
 Which element received the most emphasis (contrast) on each page?
 
-In the webpage, I used a very basic black and white theme. I had to get emphasis on the mandatory fields, so I made their labels bright red and added * to them. Additionally, I wanted the user to not miss the form on the page, so I used the <h2> tag in HTML to make it big and bold. This would attract the user attention. Additionally, my CSS template gives a gray background to the fields which have to filled up by the user, this makes sure that the user does not miss them. The most emphasis on the page is on the title. The title has a <h1> tag which makes it the biggest and boldest on the page and attracts the most attention. The heading should receive the most emphasis since it tells the user the function of the webpage.
+In the webpage, I used a very basic black and white theme. I had to get emphasis on the mandatory fields, so I made their labels bright red and added * to them. Additionally, I wanted the user to not miss the form on the page, so I used the "<h2>" tag in HTML to make it big and bold. This would attract the user attention. Additionally, my CSS template gives a gray background to the fields which have to filled up by the user, this makes sure that the user does not miss them. The most emphasis on the page is on the title. The title has a <h1> tag which makes it the biggest and boldest on the page and attracts the most attention. The heading should receive the most emphasis since it tells the user the function of the webpage.
 
 How did you use proximity to organize the visual information on your page?
 
-I used proximity to organize the visual information on my page by adding headings with the tag <h2> on my webpage. This gives the user an impression that the page is divided into 3 chunks: Login, the to-do form, and the To-do list in the form of the table. Additionally, the table helps get similar information, in my case: the users’ tasks, together. Whenever the user adds a task using the form, a row is added to the table and the information stays organizes and in one place separated by columns. Lastly, 2/3 sections: Login and To-Do form have buttons towards the end of their section, which means that the user fills up a form and is done with a particular section of the page. 
+I used proximity to organize the visual information on my page by adding headings with the tag "<h2>" on my webpage. This gives the user an impression that the page is divided into 3 chunks: Login, the to-do form, and the To-do list in the form of the table. Additionally, the table helps get similar information, in my case: the users’ tasks, together. Whenever the user adds a task using the form, a row is added to the table and the information stays organizes and in one place separated by columns. Lastly, 2/3 sections: Login and To-Do form have buttons towards the end of their section, which means that the user fills up a form and is done with a particular section of the page. 
 
 What design elements (colors, fonts, layouts, etc.) did you use repeatedly throughout your site?
 
