@@ -96,9 +96,10 @@ app.post("/update", (request, response) => {
     .then(result => response.json(result));
 });
 
-app.post("/adduser", bodyParser.json(), function(req, res) {
-  userCollection.insertOne(req.body).then(dbresponse => {
-    res.json(dbresponse.ops[0]);
+app.post("/adduser", bodyParser.json(), function(request, response) {
+  console.log(request)
+  userCollection.insertOne(request.body).then(dbresponse => {
+    response.json(dbresponse.ops[0]);
   });
 });
 

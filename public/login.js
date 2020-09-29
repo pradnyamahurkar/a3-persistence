@@ -2,8 +2,8 @@ var users = [];
 var meetings = [];
 var account = "guest"
 
-const meetingList = document.getElementById("meetings");
-const login = document.getElementById("loginregister");
+// const meetingList = document.getElementById("meetings");
+const login = document.getElementById("login");
 const error = document.getElementById("error");
 
 function addUser(user, pass, id) {
@@ -17,7 +17,7 @@ function addUser(user, pass, id) {
   });
 }
 
-login.addEventListener("buttonlogin", event => {
+login.addEventListener("click", event => {
   event.preventDefault();
 
   let newUser = login.elements.user.value;
